@@ -1,7 +1,6 @@
 import os
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 """
 --- Day 9: Mirage Maintenance ---
@@ -104,6 +103,7 @@ Adding all three new values together produces 2.
 
 Analyze your OASIS report again, this time extrapolating the previous value for each history. What is the sum of these extrapolated values?
 """
+
 
 def get_lines():
     with open(os.path.join(__location__, "input.txt")) as f:

@@ -1,7 +1,6 @@
 import os
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 """
 --- Day 11: Cosmic Expansion ---
@@ -121,6 +120,7 @@ Starting with the same initial image, expand the universe according to these new
 then find the length of the shortest path between every pair of galaxies. What is the sum of these lengths?
 """
 
+
 def get_lines():
     with open(os.path.join(__location__, "input.txt")) as f:
         for line in f.readlines():
@@ -132,8 +132,14 @@ class Image:
         self.lines = lines
         self.expansion_const = expansion_const
         self.starting_width = len(self.lines[0])
-        self.empty_row_idxs = [y for y, line in enumerate(self.lines) if "#" not in line]
-        self.empty_col_idxs = [x for x in range(self.starting_width) if "#" not in [line[x] for line in self.lines]]
+        self.empty_row_idxs = [
+            y for y, line in enumerate(self.lines) if "#" not in line
+        ]
+        self.empty_col_idxs = [
+            x
+            for x in range(self.starting_width)
+            if "#" not in [line[x] for line in self.lines]
+        ]
         self.galaxies = self.get_galaxies()
         self.height = len(lines)
         self.width = len(lines[0])
@@ -159,4 +165,6 @@ class Image:
         height = y2 - y1
         empty_cols_count = sum(1 for x in self.empty_col_idxs if x1 < x < x2)
         empty_rows_count = sum(1 for y in self.empty_row_idxs if y1 < y < y2)
-        return (width + empty_cols_count * self.expansion_const) + (height + empty_rows_count * self.expansion_const)
+        return (width + empty_cols_count * self.expansion_const) + (
+            height + empty_rows_count * self.expansion_const
+        )

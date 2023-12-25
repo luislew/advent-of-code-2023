@@ -1,15 +1,14 @@
 import os
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 MAP_SECTIONS = [
-    ('seed', 'soil'),
-    ('soil', 'fertilizer'),
-    ('fertilizer', 'water'),
-    ('water', 'light'),
-    ('light', 'temperature'),
-    ('temperature', 'humidity'),
-    ('humidity', 'location'),
+    ("seed", "soil"),
+    ("soil", "fertilizer"),
+    ("fertilizer", "water"),
+    ("water", "light"),
+    ("light", "temperature"),
+    ("temperature", "humidity"),
+    ("humidity", "location"),
 ]
 
 
@@ -40,7 +39,9 @@ def parse_input():
             # 117293332 is range length
             # If map section is ("seed", "soil"), then seed 2788703865 --> soil 2122609492
             destination_start, source_start, length = [int(x) for x in line.split(" ")]
-            maps[current_map_section][(source_start, source_start + length)] = destination_start
+            maps[current_map_section][
+                (source_start, source_start + length)
+            ] = destination_start
 
     return seeds, maps
 

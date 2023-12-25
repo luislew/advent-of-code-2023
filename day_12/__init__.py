@@ -1,8 +1,7 @@
 import os
 from itertools import combinations
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 """
 --- Day 12: Hot Springs ---
@@ -144,4 +143,3 @@ def get_arrangements(inventory, counts):
             arrangements.append(arrangement)
 
     return arrangements
-

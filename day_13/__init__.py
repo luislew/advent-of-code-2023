@@ -1,7 +1,6 @@
 import os
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 """
 --- Day 13: Point of Incidence ---
@@ -167,9 +166,7 @@ class Map:
         self.height = len(lines)
         self.width = len(lines[0])
         self.map = {
-            (x, y): lines[y][x]
-            for x in range(self.width)
-            for y in range(self.height)
+            (x, y): lines[y][x] for x in range(self.width) for y in range(self.height)
         }
 
     def __repr__(self):
@@ -202,8 +199,7 @@ class Map:
             return off_by_ones_count == 1
 
         return all(
-            self.get_column(x1) == self.get_column(x2)
-            for x1, x2 in pairs_to_check
+            self.get_column(x1) == self.get_column(x2) for x1, x2 in pairs_to_check
         )
 
     def is_horizontal_reflection(self, y, with_smudge=False):
@@ -226,10 +222,7 @@ class Map:
                     return False
             return off_by_ones_count == 1
 
-        return all(
-            self.get_row(y1) == self.get_row(y2)
-            for y1, y2 in pairs_to_check
-        )
+        return all(self.get_row(y1) == self.get_row(y2) for y1, y2 in pairs_to_check)
 
     def find_reflection(self, with_smudge=False):
         # Look for a vertical line of symmetry

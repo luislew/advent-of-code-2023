@@ -1,7 +1,6 @@
 import os
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 import sys
 
@@ -134,9 +133,7 @@ class Layout:
         self.width = len(lines[0])
         self.height = len(lines)
         self.map = {
-            (x, y): lines[y][x]
-            for x in range(self.width)
-            for y in range(self.height)
+            (x, y): lines[y][x] for x in range(self.width) for y in range(self.height)
         }
         self.energized = set()
         self.traversed = set()

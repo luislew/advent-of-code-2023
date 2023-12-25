@@ -1,8 +1,6 @@
 import os
-from functools import partial
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 """
 --- Day 15: Lens Library ---
@@ -206,9 +204,7 @@ class LightBoxes:
 
     def __repr__(self):
         return "\n".join(
-            f"Box {box_id}: {box}"
-            for box_id, box in enumerate(self.boxes)
-            if box
+            f"Box {box_id}: {box}" for box_id, box in enumerate(self.boxes) if box
         )
 
     def add_lens(self, label, focal_length):

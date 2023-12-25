@@ -1,7 +1,6 @@
 import os
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 """
 --- Day 10: Pipe Maze ---
@@ -44,8 +43,9 @@ PP_CHAR_MAP = {
     "7": "┐",
     "F": "┌",
     "S": "└",
-    ".": "·"
+    ".": "·",
 }
+
 
 def get_lines():
     with open(os.path.join(__location__, "input.txt")) as f:
@@ -112,7 +112,11 @@ class Grid:
         while current_square not in main_loop:
             main_loop.append(current_square)
             adjoining_squares = self.get_adjoining_squares(*current_square)
-            adjoining_square = adjoining_squares[0] if adjoining_squares[0] != previous_square else adjoining_squares[1]
+            adjoining_square = (
+                adjoining_squares[0]
+                if adjoining_squares[0] != previous_square
+                else adjoining_squares[1]
+            )
             previous_square = current_square
             current_square = adjoining_square
         return main_loop

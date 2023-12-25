@@ -1,7 +1,10 @@
 from day_01 import get_lines
 
-words_to_digits = dict(one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9)
+words_to_digits = dict(
+    one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9
+)
 words = words_to_digits.keys()
+
 
 def digitize_substring(substring):
     for word, digit in words_to_digits.items():

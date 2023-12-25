@@ -1,8 +1,7 @@
 import os
 from collections import Counter
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 """
 A hand consists of five cards labeled one of A, K, Q, J, T, 9, 8, 7, 6, 5, 4, 3, or 2.
@@ -29,8 +28,13 @@ Similarly, 77888 and 77788 are both a full house, but 77888 is stronger because 
 (and both hands have the same first and second card).
 """
 
-CARD_RANKS = list(reversed(["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"]))
-CARD_RANKS_WITH_JOKERS = list(reversed(["A", "K", "Q", "T", "9", "8", "7", "6", "5", "4", "3", "2", "J"]))
+CARD_RANKS = list(
+    reversed(["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"])
+)
+CARD_RANKS_WITH_JOKERS = list(
+    reversed(["A", "K", "Q", "T", "9", "8", "7", "6", "5", "4", "3", "2", "J"])
+)
+
 
 def get_lines():
     with open(os.path.join(__location__, "input.txt")) as f:

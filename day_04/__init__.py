@@ -1,7 +1,6 @@
 import os
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
 def get_lines():
@@ -15,6 +14,8 @@ def parse_line(line):
     card_title, numbers = line.split(": ")
     card_id = int(card_title.split(" ")[-1])
     winning_numbers_str, card_numbers_str = numbers.split(" | ")
-    winning_numbers = [int(number) for number in winning_numbers_str.split(" ") if number]
+    winning_numbers = [
+        int(number) for number in winning_numbers_str.split(" ") if number
+    ]
     card_numbers = [int(number) for number in card_numbers_str.split(" ") if number]
     return card_id, winning_numbers, card_numbers
